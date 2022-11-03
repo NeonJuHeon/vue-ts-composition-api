@@ -1,28 +1,39 @@
 <template>
-	<h1>Simple Counter</h1>
-	<h3>Not using state</h3>
-	<div>{{ count }}</div>
+	<h1>Pinia Counter</h1>
+	<h3>using pinia</h3>
 	<div>
-		<button @click="onClickAdd">+</button>
-		<button @click="onClickSubtract">-</button>
+		<span>count : {{ counter.count }}</span>
+		<div>
+			<button @click="onClickAdd">+</button>
+			<button @click="onClickSubtract">-</button>
+		</div>
+		<div>
+			<span>step:{{ counter.step }}</span>
+			<div>
+				<button @click="counter.step++">+</button>
+				<button @click="counter.step--">-</button>
+			</div>
+		</div>
 	</div>
 	<!--<div class="home">Home</div>-->
 </template>
 
 <script lang="ts">
-	import { defineComponent, ref } from 'vue';
+	import { defineComponent } from 'vue';
+	import { useCounterStore } from '@/store/module/counter';
 
 	export default defineComponent({
 		setup() {
-			const count = ref<number>(0);
+			const counter = useCounterStore();
+
 			const onClickAdd = (): void => {
-				count.value++;
+				counter.count += counter.step;
 			};
 			const onClickSubtract = (): void => {
-				count.value--;
+				counter.count -= counter.step;
 			};
 			return {
-				count,
+				counter,
 				onClickAdd,
 				onClickSubtract,
 			};

@@ -12,6 +12,11 @@ const routes: Array<RouteRecordRaw> = [
 		component: () => import(/* webpackChunkName: "about" */ '../views/SimpleCounter.vue'),
 	},
 	{
+		path: '/pinia_counter',
+		name: 'PiniaCounter',
+		component: () => import(/* webpackChunkName: "about" */ '../views/PiniaCounter.vue'),
+	},
+	{
 		path: '/todo',
 		name: 'TodoList',
 		component: () => import(/* webpackChunkName: "about" */ '../views/TodoList.vue'),
