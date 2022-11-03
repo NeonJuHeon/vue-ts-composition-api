@@ -1,5 +1,6 @@
 <template>
-	<h1>Counter</h1>
+	<h1>Simple Counter</h1>
+	<h3>Not using state</h3>
 	<div>{{ count }}</div>
 	<div>
 		<button @click="onClickAdd">+</button>
@@ -14,10 +15,10 @@
 	export default defineComponent({
 		setup() {
 			const count = ref<number>(0);
-			const onClickAdd = () => {
+			const onClickAdd = (): void => {
 				count.value++;
 			};
-			const onClickSubtract = () => {
+			const onClickSubtract = (): void => {
 				count.value--;
 			};
 			return {
