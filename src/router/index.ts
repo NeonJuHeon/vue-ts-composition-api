@@ -11,6 +11,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'SimpleCounter',
 		component: () => import(/* webpackChunkName: "about" */ '../views/SimpleCounter.vue'),
 	},
+	{
+		path: '/todo',
+		name: 'TodoList',
+		component: () => import(/* webpackChunkName: "about" */ '../views/TodoList.vue'),
+	},
 ];
 
 const router = createRouter({

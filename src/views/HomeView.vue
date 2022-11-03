@@ -2,6 +2,9 @@
 	<div>
 		<router-link :to="{ name: 'SimpleCounter' }">Simple Counter</router-link>
 	</div>
+	<div>
+		<router-link :to="{ name: 'TodoList' }">Todo List</router-link>
+	</div>
 </template>
 
 <script lang="ts">
