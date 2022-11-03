@@ -7,7 +7,7 @@
 		<button @click="onClickTodo">Add</button>
 	</div>
 	<div v-for="todo in todos" :key="todo.id" style="display: flex; padding: 0.3rem">
-		<TodoItem :item="todo" @on-delete="onDelete" />
+		<TodoItem :item="todo" @on-delete="onDelete" @on-change="onChange" />
 	</div>
 </template>
 
@@ -24,16 +24,19 @@
 					id: 1,
 					title: 'title1',
 					name: 'myname',
+					status: 'done',
 				},
 				{
 					id: 2,
 					title: 'title2',
 					name: 'yourName',
+					status: 'ongoing',
 				},
 				{
 					id: 3,
 					title: 'title3',
 					name: 'hisName',
+					status: 'yet',
 				},
 			]);
 
@@ -44,6 +47,7 @@
 					id: todos.value.length + 1,
 					title: inputTitle.value,
 					name: inputName.value,
+					status: 'yet',
 				});
 				inputTitle.value = '';
 				inputName.value = '';
@@ -53,11 +57,20 @@
 				const idx = todos.value.findIndex((item) => item.id === id);
 				todos.value.splice(idx, 1);
 			};
+			const onChange = (changed: Todo): void => {
+				todos.value.forEach((item) => {
+					if (item.id === changed.id) {
+						item.status = changed.status;
+						console.log(item, changed);
+					}
+				});
+			};
 
 			return {
 				todos,
 				onClickTodo,
 				onDelete,
+				onChange,
 				inputTitle,
 				inputName,
 			};
