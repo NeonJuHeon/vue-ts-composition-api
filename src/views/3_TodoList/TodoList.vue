@@ -6,23 +6,18 @@
 		<input type="text" placeholder="name" v-model="inputName" />
 		<button @click="onClickTodo">Add</button>
 	</div>
-	<div v-for="{ id, title, name } in todos" :key="id" style="display: flex; padding: 0.3rem">
-		<div style="border: 1px solid black; width: 100%; display: flex; flex-direction: column">
-			<div>{{ id }}</div>
-			<div>{{ title }}</div>
-			<div>{{ name }}</div>
-		</div>
-		<div>
-			<button @click="onClickDelete(id)">Delete</button>
-		</div>
+	<div v-for="todo in todos" :key="todo.id" style="display: flex; padding: 0.3rem">
+		<TodoItem :item="todo" @on-delete="onDelete" />
 	</div>
 </template>
 
 <script lang="ts">
 	import { defineComponent, ref } from 'vue';
-	import Todo from '../types/Todo';
+	import Todo from '@/types/Todo';
+	import TodoItem from './TodoItem.vue';
 
 	export default defineComponent({
+		components: { TodoItem },
 		setup() {
 			const todos = ref<Todo[]>([
 				{
@@ -54,7 +49,7 @@
 				inputName.value = '';
 			};
 
-			const onClickDelete = (id: number): void => {
+			const onDelete = (id: number): void => {
 				const idx = todos.value.findIndex((item) => item.id === id);
 				todos.value.splice(idx, 1);
 			};
@@ -62,7 +57,7 @@
 			return {
 				todos,
 				onClickTodo,
-				onClickDelete,
+				onDelete,
 				inputTitle,
 				inputName,
 			};

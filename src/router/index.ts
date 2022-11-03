@@ -9,17 +9,19 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/simple_counter',
 		name: 'SimpleCounter',
-		component: () => import(/* webpackChunkName: "about" */ '../views/SimpleCounter.vue'),
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/1_SimpleCounter/SimpleCounter.vue'),
 	},
 	{
 		path: '/pinia_counter',
 		name: 'PiniaCounter',
-		component: () => import(/* webpackChunkName: "about" */ '../views/PiniaCounter.vue'),
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/2_PiniaCounter/PiniaCounter.vue'),
 	},
 	{
 		path: '/todo',
 		name: 'TodoList',
-		component: () => import(/* webpackChunkName: "about" */ '../views/TodoList.vue'),
+		component: () => import(/* webpackChunkName: "about" */ '../views/3_TodoList/TodoList.vue'),
 	},
 ];
 
