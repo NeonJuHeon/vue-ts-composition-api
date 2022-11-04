@@ -7,4 +7,4 @@ interface Todo {
 	status: Status;
 }
 
-export default Todo;
+export { Todo, Status };

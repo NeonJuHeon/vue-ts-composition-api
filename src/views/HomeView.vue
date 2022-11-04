@@ -8,6 +8,9 @@
 	<div>
 		<router-link :to="{ name: 'TodoList' }">Todo List</router-link>
 	</div>
+	<div>
+		<router-link :to="{ name: 'TodoListPinia' }">Todo List Pinia</router-link>
+	</div>
 </template>
 
 <script lang="ts">
