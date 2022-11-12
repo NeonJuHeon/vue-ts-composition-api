@@ -29,6 +29,12 @@ const routes: Array<RouteRecordRaw> = [
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/4_TodoListPinia/TodoList.vue'),
 	},
+	{
+		path: '/fetch_todo',
+		name: 'FetchListPinia',
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/5_FetchListPinia/HomeView.vue'),
+	},
 ];
 
 const router = createRouter({

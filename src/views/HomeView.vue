@@ -11,6 +11,9 @@
 	<div>
 		<router-link :to="{ name: 'TodoListPinia' }">Todo List Pinia</router-link>
 	</div>
+	<div>
+		<router-link :to="{ name: 'FetchListPinia' }">FetchListPinia</router-link>
+	</div>
 </template>
 
 <script lang="ts">
